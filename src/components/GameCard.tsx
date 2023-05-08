@@ -4,7 +4,7 @@ import React from 'react'
 import { Game } from '../Hooks/useGames'
 import PlatformIconsList from './PlatformIconsList'
 import GameMetaCritic from './GameMetaCritic'
-import CropingImage from '../services/Image-URL'
+import CropingImage from '../services/GetCroppedImage'
 interface Props{
 game : Game,
 }
