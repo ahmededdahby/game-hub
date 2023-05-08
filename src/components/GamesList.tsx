@@ -13,7 +13,7 @@ const GamesList = () => {
             {error && <h1>{error}</h1>}
 
             <SimpleGrid
-                columns={{ sm: 1, md: 2, lg: 3, xl: 4 }}
+                columns={{ sm: 1, md: 2, lg: 3 }}
                 spacing={10}
                 padding="10px"
             >

@@ -1,6 +1,7 @@
 import { Button, ButtonGroup, Grid, GridItem, Show } from '@chakra-ui/react'
 import NavBar from './components/NavBar'
 import GamesList from './components/GamesList'
+import GenresList from './components/GenresList'
 //in chakra padding ={1} is by default 4px , however we can costumize it using padding = '10px
 function App() {
   return (
@@ -16,7 +17,7 @@ function App() {
         </GridItem>
         <Show above='lg'>
         <GridItem area="side" >
-            side
+            <GenresList/>
         </GridItem>
         </Show>
         <GridItem area="main" >
