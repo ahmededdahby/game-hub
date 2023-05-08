@@ -4,6 +4,7 @@ import React from 'react'
 import { Game } from '../Hooks/useGames'
 import PlatformIconsList from './PlatformIconsList'
 import GameMetaCritic from './GameMetaCritic'
+import CropingImage from '../services/Image-URL'
 interface Props{
  game : Game,
 }
@@ -11,7 +12,7 @@ interface Props{
 const GameCard = ({game}:Props) => {
     return (
         <Card borderRadius={10} overflow='hidden'>
-            <Image src={game.background_image} />
+            <Image src={CropingImage(game.background_image)} />
             <CardBody>
                 <Heading fontSize='2xl'>{game.name}</Heading>
                 <HStack justifyContent='space-between' padding={3}>
