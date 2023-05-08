@@ -2,8 +2,11 @@ import { Button, ButtonGroup, Grid, GridItem, Show } from '@chakra-ui/react'
 import NavBar from './components/NavBar'
 import GamesList from './components/GamesList'
 import GenresList from './components/GenresList'
+import {useState} from 'react'
+import { Genre } from './Hooks/useGenres'
 //in chakra padding ={1} is by default 4px , however we can costumize it using padding = '10px
 function App() {
+  const [SelectedGenre , setSelectedGenre] = useState<Genre | null>(null)
   return (
     <>
       <Grid templateAreas={
@@ -22,11 +25,11 @@ function App() {
         </GridItem>
         <Show above='lg'>
         <GridItem area="side" padding={5}>
-            <GenresList/>
+            <GenresList onSelectGenre={(genre)=> setSelectedGenre(genre)}/>
         </GridItem>
         </Show>
         <GridItem area="main" >
-            <GamesList/>
+            <GamesList selectedGenre={SelectedGenre}/>
         </GridItem>
 
       </Grid>
