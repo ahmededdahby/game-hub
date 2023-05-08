@@ -6,15 +6,15 @@ import PlatformIconsList from './PlatformIconsList'
 import GameMetaCritic from './GameMetaCritic'
 import CropingImage from '../services/Image-URL'
 interface Props{
- game : Game,
+game : Game,
 }
 
 const GameCard = ({game}:Props) => {
     return (
-        <Card width="300px" borderRadius={10} overflow='hidden' >
+        <Card  >
             <Image src={CropingImage(game.background_image)} />
             <CardBody>
-                <Heading fontSize='1xl'>{game.name}</Heading>
+                <Heading fontSize='xl'>{game.name}</Heading>
                 <HStack justifyContent='space-between' padding={3}>
                     <PlatformIconsList platforms={game.parent_platforms.map(p => p.platform)} />
                     <GameMetaCritic score={game.metacritic}/>
