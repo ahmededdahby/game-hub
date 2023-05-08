@@ -1,7 +1,7 @@
 import { Button, ButtonGroup, Grid, GridItem, Show } from '@chakra-ui/react'
 import NavBar from './components/NavBar'
 import GamesList from './components/GamesList'
-
+//in chakra padding ={1} is by default 4px , however we can costumize it using padding = '10px
 function App() {
   return (
     <>
