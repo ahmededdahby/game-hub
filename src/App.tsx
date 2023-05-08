@@ -7,9 +7,13 @@ import { Genre } from './Hooks/useGenres'
 import PlatformSelector from './components/PlatformSelector'
 import { Platform } from './Hooks/useGames'
 //in chakra padding ={1} is by default 4px , however we can costumize it using padding = '10px
+
+export interface GameQuery{
+  genre: Genre | null,
+  platform : Platform | null,
+}
 function App() {
-  const [SelectedGenre, setSelectedGenre] = useState<Genre | null>(null)
-  const [SelectedPlatform, setSelectedPlatform] = useState<Platform| null>(null)
+const [gameQuery, setGameQuery] = useState<GameQuery>({} as GameQuery)
   return (
     <>
       <Grid templateAreas={
@@ -28,12 +32,12 @@ function App() {
         </GridItem>
         <Show above='lg'>
         <GridItem area="side" padding={5}>
-            <GenresList selectedGenre={SelectedGenre} onSelectGenre={(genre)=> setSelectedGenre(genre)}/>
+            <GenresList selectedGenre={gameQuery.genre} onSelectGenre={(genre)=> setGameQuery( {...gameQuery, genre} as GameQuery)}/>
         </GridItem>
         </Show>
         <GridItem area="main" >
-            <PlatformSelector selectedPlatform={SelectedPlatform} onSelectPlatform={(plat)=>setSelectedPlatform(plat)}/>
-            <GamesList selectedPlatform={SelectedPlatform} selectedGenre={SelectedGenre}/>
+            <PlatformSelector selectedPlatform={gameQuery.platform} onSelectPlatform={(plat)=>setGameQuery({...gameQuery , platform : plat} as GameQuery)}/>
+            <GamesList gameQuery={gameQuery} />
         </GridItem>
 
       </Grid>
