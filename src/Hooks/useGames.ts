@@ -1,10 +1,17 @@
 import  { useEffect, useState } from "react";
 import apiClient from "../services/api-client";
 import axios from "axios"
+
+export interface Platform{
+    id: number,
+    name: string,
+    slug: string
+}
 export interface Game {
     id: number;
     name: string;
     background_image: string;
+    parent_platforms: {platform:Platform}[];
 }
 interface FetchGamesResponse {
     count: number;
@@ -21,7 +28,9 @@ const useGames = () => {
             .catch((err) => {
                 if (err instanceof axios.CanceledError) return;
                 setError(err.message);
-    })
+                
+            })
+            console.log(Games);
         return ()=> controller.abort();
     }, []);
     return {Games,error}
