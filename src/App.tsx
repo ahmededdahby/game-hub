@@ -5,9 +5,11 @@ import GenresList from './components/GenresList'
 import {useState} from 'react'
 import { Genre } from './Hooks/useGenres'
 import PlatformSelector from './components/PlatformSelector'
+import { Platform } from './Hooks/useGames'
 //in chakra padding ={1} is by default 4px , however we can costumize it using padding = '10px
 function App() {
-  const [SelectedGenre , setSelectedGenre] = useState<Genre | null>(null)
+  const [SelectedGenre, setSelectedGenre] = useState<Genre | null>(null)
+  const [SelectedPlatform, setSelectedPlatform] = useState<Platform| null>(null)
   return (
     <>
       <Grid templateAreas={
@@ -30,8 +32,8 @@ function App() {
         </GridItem>
         </Show>
         <GridItem area="main" >
-            <PlatformSelector/>
-            <GamesList selectedGenre={SelectedGenre}/>
+            <PlatformSelector selectedPlatform={SelectedPlatform} onSelectPlatform={(plat)=>setSelectedPlatform(plat)}/>
+            <GamesList selectedPlatform={SelectedPlatform} selectedGenre={SelectedGenre}/>
         </GridItem>
 
       </Grid>

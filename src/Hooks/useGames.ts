@@ -1,21 +1,30 @@
-import  { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import apiClient from "../services/api-client";
-import axios from "axios"
+import axios from "axios";
 import useData from "./useData";
 import { Genre } from "./useGenres";
 
-export interface Platform{
-    id: number,
-    name: string,
-    slug: string
+export interface Platform {
+    id: number;
+    name: string;
+    slug: string;
 }
 export interface Game {
     id: number;
     name: string;
     background_image: string;
     parent_platforms: { platform: Platform }[];
-    metacritic : number;
+    metacritic: number;
 }
 
-const useGames = (selectedGenre: Genre | null) => useData<Game>("/games", { params: { genres: selectedGenre?.id } },[selectedGenre?.id]);
-    export default useGames
+const useGames = (
+    selectedGenre: Genre | null,
+    selectedPlatform: Platform | null
+) =>
+    useData<Game>(
+        "/games",
+        //genres and platform should be written as the game properties given in the inteface
+        { params: { genres: selectedGenre?.id, parent_platforms: selectedPlatform?.id } },
+        [selectedGenre?.id, selectedPlatform?.id]
+    );
+export default useGames;
