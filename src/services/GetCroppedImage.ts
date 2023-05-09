@@ -1,10 +1,10 @@
 //the image in the api is way bigger then we actually need in the game Card
 //in this api we have the ability to crop the image by adding crop/600/400 to the url after /media/
 //for that we are going to create a function
-
+import noImage from '../assets/no-image-placeholder.webp'
 
 const CropingImage = (url: string) => {
-    if(!url) return ""
+    if(!url) return noImage
     let target = "/media/";
     // to get the url with the target value included
     let index = url.indexOf(target) + target.length;
