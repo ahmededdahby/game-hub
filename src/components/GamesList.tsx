@@ -15,7 +15,7 @@ const GamesList = ({gameQuery}: Props) => {
     return (
         <>
             {error && <h1>{error}</h1>}
- 
+
             <SimpleGrid
                 columns={{ sm: 1, md: 2, lg: 3 }}
                 spacing={6}

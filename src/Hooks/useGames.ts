@@ -23,8 +23,8 @@ const useGames = (
 ) =>
     useData<Game>(
         "/games",
-        //genres and platform should be written as the game properties given in the inteface
-        { params: { genres: gamequery.genre?.id, parent_platforms: gamequery.platform?.id } },
-        [gamequery.genre?.id, gamequery.platform?.id]
+        //genres and platform should be written as the game properties given in the api
+        { params: { genres: gamequery.genre?.id, parent_platforms: gamequery.platform?.id ,ordering : gamequery.sortOrder  } },
+        [gamequery]
     );
 export default useGames;

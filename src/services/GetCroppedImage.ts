@@ -4,6 +4,7 @@
 
 
 const CropingImage = (url: string) => {
+    if(!url) return ""
     let target = "/media/";
     // to get the url with the target value included
     let index = url.indexOf(target) + target.length;
