@@ -9,6 +9,7 @@ import { Platform } from './Hooks/useGames'
 import SortSelector from './components/SortSelector'
 import GameHeading from './components/GameHeading'
 //in chakra padding ={1} is by default 4px , however we can costumize it using padding = '10px
+//deploy app in vercel
 
 export interface GameQuery {
   genre: Genre | null,
