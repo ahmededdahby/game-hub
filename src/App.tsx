@@ -7,6 +7,7 @@ import { Genre } from './Hooks/useGenres'
 import PlatformSelector from './components/PlatformSelector'
 import { Platform } from './Hooks/useGames'
 import SortSelector from './components/SortSelector'
+import GameHeading from './components/GameHeading'
 //in chakra padding ={1} is by default 4px , however we can costumize it using padding = '10px
 
 export interface GameQuery {
@@ -39,13 +40,16 @@ function App() {
           </GridItem>
         </Show>
         <GridItem area="main" >
-          <Flex paddingLeft={2} marginBottom={3}>
-            <Box marginRight={5}>
-              <PlatformSelector selectedPlatform={gameQuery.platform} onSelectPlatform={(plat) => setGameQuery({ ...gameQuery, platform: plat } as GameQuery)} />
-            </Box>
-            <SortSelector sortOrder={gameQuery.sortOrder} onSort={(ord) => setGameQuery({ ...gameQuery, sortOrder: ord })} />
-          </Flex>
-          <GamesList gameQuery={gameQuery} />
+          <Box paddingLeft={2} >
+            <GameHeading gameQuery={gameQuery}/>
+            <Flex marginBottom={3}>
+              <Box marginRight={5}>
+                <PlatformSelector selectedPlatform={gameQuery.platform} onSelectPlatform={(plat) => setGameQuery({ ...gameQuery, platform: plat } as GameQuery)} />
+              </Box>
+              <SortSelector sortOrder={gameQuery.sortOrder} onSort={(ord) => setGameQuery({ ...gameQuery, sortOrder: ord })} />
+            </Flex>
+            <GamesList gameQuery={gameQuery} />
+          </Box>
         </GridItem>
 
       </Grid>
